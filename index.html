@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MongoDB Data</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.4/socket.io.js"></script>
+    <script>
+      const socket = io("http://127.0.0.1:5000/");
+
+      socket.on('connect', () => {
+        console.log('Connected to server');
+      });
+
+      socket.on('initial_data', (data) => {
+        displayData(JSON.parse(data));
+      });
+
+      socket.on('new_data', (data) => {
+        displayData(JSON.parse(data));
+      });
+
+      function displayData(data) {
+        const dataContainer = document.getElementById('data-container');
+        dataContainer.innerHTML = '';
+
+        data.forEach((item) => {
+          const itemElement = document.createElement('div');
+          itemElement.textContent = JSON.stringify(item);
+          dataContainer.appendChild(itemElement);
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <h1>MongoDB Data</h1>
+    <div id="data-container"></div>
+  </body>
+</html>
