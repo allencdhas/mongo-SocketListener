@@ -11,7 +11,7 @@ app = Flask(__name__)
 socketio = SocketIO(app, cors_allowed_origins='*')
 
 # MongoDB configuration
-MONGO_URI = "mongodb+srv://allencdvja:fe6EHGghyrbtn7hq@cluster0.othvgus.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+MONGO_URI = "mongodb+srv://<username>:<password>@cluster0.othvgus.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 DB_NAME = 'mydatabase'
 COLLECTION_NAME = 'mycollection'
 
